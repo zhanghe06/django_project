@@ -100,3 +100,51 @@ python manage.py sqlmigrate user 0001   # 生成建表语句 执行之前, 0001_
 python manage.py check                  # 检查（可选）
 python manage.py migrate                # 执行建表
 ```
+
+交互模式
+```
+$ python manage.py shell
+Python 3.6.2 (default, Jul 17 2017, 16:44:45)
+[GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from user.models import User
+>>> User.objects.all()
+<QuerySet [<User: User object>, <User: User object>, <User: User object>, <User: User object>, <User: User object>]>
+```
+
+
+创建后台管理
+```
+$ python manage.py createsuperuser
+Username (leave blank to use 'zhanghe'): admin
+Email address: admin@example.com
+Password: 1234!@#$
+Password (again): 1234!@#$
+Superuser created successfully.
+```
+
+```
+$ python manage.py runserver 0.0.0.0:8100
+```
+
+管理地址: http://127.0.0.1:8100/admin/
+Username: admin
+Password: 1234!@#$
+
+登录后发现只有 Groups 和 Users, 我们自定义的模块并没有显示
+
+
+接着将所需的模块注册管理接口
+
+例如: app_frontend/user/admin.py
+```
+from django.contrib import admin
+
+# Register your models here.
+
+from .models import User
+
+admin.site.register(User)
+```
+被注册的模块将显示在管理页面
