@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views import generic
 from django.views.generic.list import BaseListView
 
-from app_frontend.utils.views import CSVTemplateResponseMixin
+from utils.views import CSVTemplateResponseMixin
 from .models import User
 
 

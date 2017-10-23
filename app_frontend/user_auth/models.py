@@ -16,3 +16,6 @@ class UserAuth(models.Model):
         managed = False
         db_table = 'user_auth'
         unique_together = (('type_auth', 'auth_key'),)
+
+    def __str__(self):
+        return self.auth_key

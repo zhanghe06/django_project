@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Index</title>
+</head>
+<body>
+{% if latest_user_list %}
+    <a href="{% url 'user:csv' %}">download</a>
+    <ul>
+    {% for user_item in latest_user_list %}
+        <li>
+            <a href="{% url 'user:detail' user_item.id %}">{{ user_item.id }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
+</body>
+</html>

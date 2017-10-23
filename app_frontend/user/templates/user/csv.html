@@ -1,0 +1,2 @@
+{% for row in csv_data %}{{ row.id|addslashes }}, {{ row.status_activate|addslashes }}, {{ row.status_lock|addslashes }}, {{ row.status_real_name|addslashes }}, {{ row.status_delete|addslashes }}, {{ row.time_activate|default_if_none:"-"|addslashes }}, {{ row.time_lock|default_if_none:"-"|addslashes }}, {{ row.time_real_name|default_if_none:"-"|addslashes }}, {{ row.time_delete|default_if_none:"-"|addslashes }}, {{ row.time_create|addslashes }}, {{ row.time_update|addslashes }}
+{% endfor %}

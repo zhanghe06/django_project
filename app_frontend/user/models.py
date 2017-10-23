@@ -16,5 +16,8 @@ class User(models.Model):
     time_update = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'user'
+
+    def __str__(self):
+        return str(self.id)
