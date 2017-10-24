@@ -70,5 +70,5 @@ class UserIndexModelTests(TestCase):
         """
         test user index
         """
-        latest_user_list = User.objects.order_by('-time_create')[:3]
-        self.assertEqual(len(latest_user_list), 3)
+        latest_user_list = User.objects.order_by('-time_create')
+        self.assertEqual(len(latest_user_list), len(test_user_data))

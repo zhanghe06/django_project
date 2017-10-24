@@ -7,7 +7,8 @@
 1、工具栏 Edit Configurations...
 2、点 + (Add New Configuration)
 3、选择 Django Server
-4、填写 Name Host Port 保存即可
+4、填写 Name Host Port
+5、确认 DJANGO_SETTINGS_MODULE 环境变量正确 保存即可
 ```
 
 

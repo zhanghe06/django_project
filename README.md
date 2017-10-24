@@ -1,5 +1,9 @@
 ## Django
 
+[![Build Status](https://travis-ci.org/zhanghe06/django_project.svg?branch=master)](https://travis-ci.org/zhanghe06/django_project)
+
+[![Coverage Status](https://coveralls.io/repos/github/zhanghe06/django_project/badge.svg?branch=master)](https://coveralls.io/github/zhanghe06/django_project?branch=master)
+
 安装环境依赖
 ```
 $ virtualenv -p `which python3` django.env
@@ -238,3 +242,14 @@ $ python manage.py migrate
 user/migrations/0001_initial.py 还原 'managed': True
 
 再重启服务, 警告消失
+
+
+## github 代码覆盖率
+
+https://coveralls.io
+
+https://travis-ci.org
+
+http://docs.coveralls.io/
+
+https://docs.travis-ci.com/user/getting-started/
