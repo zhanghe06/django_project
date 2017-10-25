@@ -8,16 +8,7 @@ env:
   - DATABASES_MYSQL_PASSWORD=123456
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.5-dev" # 3.5 development branch
   - "3.6"
-  - "3.6-dev" # 3.6 development branch
-  - "3.7-dev" # 3.7 development branch
   - "nightly"
 before_install:
   - mysql -e "CREATE USER '${DATABASES_MYSQL_USER}'@'%' IDENTIFIED BY '${DATABASES_MYSQL_PASSWORD}';"
