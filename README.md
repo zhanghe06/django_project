@@ -1,7 +1,6 @@
 ## Django
 
 [![Build Status](https://travis-ci.org/zhanghe06/django_project.svg?branch=master)](https://travis-ci.org/zhanghe06/django_project)
-
 [![Coverage Status](https://coveralls.io/repos/github/zhanghe06/django_project/badge.svg?branch=master)](https://coveralls.io/github/zhanghe06/django_project?branch=master)
 
 安装环境依赖
