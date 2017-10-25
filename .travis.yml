@@ -12,6 +12,7 @@ python:
   - "3.6"
   - "nightly"
 before_install:
+  - sudo apt-get install -y libmariadbclient-dev
   - mysql -e "CREATE USER '${DATABASES_MYSQL_USER}'@'%' IDENTIFIED BY '${DATABASES_MYSQL_PASSWORD}';"
   - mysql -e "GRANT ALL PRIVILEGES ON *.* TO '${DATABASES_MYSQL_NAME}'@'%' IDENTIFIED BY '${DATABASES_MYSQL_PASSWORD}' WITH GRANT OPTION;"
   - mysql -e "FLUSH PRIVILEGES;"
