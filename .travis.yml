@@ -32,4 +32,6 @@ script:
   - cd ..
 after_script:
   - mysql -e "DROP DATABASE IF EXISTS ${DATABASES_MYSQL_NAME};"
-after_success: COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} coveralls
+after_success:
+  - echo ${COVERALLS_REPO_TOKEN}
+  - coveralls
