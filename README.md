@@ -232,6 +232,13 @@ user_profile/views.py                     4      1    75%
 TOTAL                                   182     30    84%
 ```
 
+可以生成 html 测试报告
+```
+$ coverage html
+```
+然后访问: htmlcov/index.html
+
+
 运行服务后, 如果出现 `You have 1 unapplied migration(s).You have 1 unapplied migration(s).` 警告, 处理方式:
 
 user/migrations/0001_initial.py 设置 'managed': False
@@ -243,7 +250,7 @@ user/migrations/0001_initial.py 还原 'managed': True
 再重启服务, 警告消失
 
 
-## github 代码覆盖率
+## GitHub CI 状态 及 代码覆盖率
 
 https://coveralls.io
 
@@ -252,3 +259,25 @@ https://travis-ci.org
 http://docs.coveralls.io/
 
 https://docs.travis-ci.com/user/getting-started/
+
+步骤：
+1、登录 `travis-ci` 开启 GitHub 项目
+2、登录 `coveralls` 获取项目的 `TOKEN`
+3、在 `travis-ci` 平台设置 `COVERALLS_REPO_TOKEN` 环境变量（`Environment Variables`）
+4、新增代码覆盖配置 `.coveragerc`
+5、新增代码覆盖报告配置（可选） `.coveralls.yml`
+6、新增持续集成配置 `.travis.yml`
+
+也可以在本地试试本地手动推送报告到 `coveralls`
+
+将以下 `<COVERALLS_REPO_TOKEN>` 替换为 `coveralls` 项目的 `TOKEN`
+```
+方式一:
+$ COVERALLS_REPO_TOKEN=<COVERALLS_REPO_TOKEN> coveralls
+方式二:
+$ export COVERALLS_REPO_TOKEN=<COVERALLS_REPO_TOKEN>
+$ coveralls
+方式三:
+echo "repo_token: <COVERALLS_REPO_TOKEN>" > .coveralls.yml
+并将 .coveralls.yml 加入 .gitignore
+```

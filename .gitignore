@@ -7,6 +7,5 @@ __pycache__
 
 
 .coverage
-.coverage.*
-
+htmlcov/
 .coveralls.yml

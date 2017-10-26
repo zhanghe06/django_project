@@ -20,16 +20,16 @@ before_install:
 install:
   - pip install -r requirements.txt
   - pip install coveralls
+  - pip install pyyaml
 # command to run tests
 before_script:
   - mysql -e "SOURCE db/schema/mysql.sql; SOURCE db/data/mysql.sql; SHOW databases; SHOW tables;"
 script:
   - cd app_frontend
   # Copy the coveragerc down so coverage.py can find it.
-  - cp ../.coveragerc .
-  # Travis workers are often overloaded and cause our tests to exceed
-  - python manage.py test
   - coverage run --source='.' manage.py test
+  - coverage report
+  - cd ..
 after_script:
-  - mysql -e "DROP DATABASE IF EXISTS ${DATABASES_MYSQL_NAME}" ;
+  - mysql -e "DROP DATABASE IF EXISTS ${DATABASES_MYSQL_NAME};"
 after_success: coveralls

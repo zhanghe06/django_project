@@ -1,23 +1,16 @@
-[paths]
-source =
-    .
-
 [run]
-branch = true
-source =
-    scrapy_redis
-    tests
-parallel = true
+omit =
+    app_frontend/wsgi.py
+    */apps.py
 
 [report]
-show_missing = true
-precision = 2
-omit =
 exclude_lines =
     pragma: no cover
     def __repr__
+    def __str__
     if self.debug:
     if settings.DEBUG
+    except ImportError
     raise AssertionError
     raise NotImplementedError
     if 0:

@@ -53,6 +53,7 @@ class UserIndexViewTests(TestCase):
         """
         response = self.client.get(reverse('user:index'))
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(response._headers.get('content-type'), ('Content-Type', 'text/html; charset=utf-8'))
 
 
 class UserIndexModelTests(TestCase):
@@ -72,3 +73,23 @@ class UserIndexModelTests(TestCase):
         """
         latest_user_list = User.objects.order_by('-time_create')
         self.assertEqual(len(latest_user_list), len(test_user_data))
+
+
+class UserCsvViewTests(TestCase):
+
+    def setUp(self):
+        super(UserCsvViewTests, self).setUp()
+
+        for index, user_item in enumerate(test_user_data):
+            user_item.update(test_extract_data)
+            user = User(**user_item)
+            user.save()
+            self.assertEqual(user.id, index + 1)
+
+    def test_user_csv(self):
+        """
+        test user csv
+        """
+        response = self.client.get(reverse('user:csv'))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response._headers.get('content-type'), ('Content-Type', 'text/csv'))
