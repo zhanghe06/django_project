@@ -4,7 +4,6 @@ addons:
   mariadb: "10.0"
 env:
   global:
-    - COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN}
     - DATABASES_MYSQL_NAME=django_project
     - DATABASES_MYSQL_USER=www
     - DATABASES_MYSQL_PASSWORD=123456
@@ -33,4 +32,4 @@ script:
   - cd ..
 after_script:
   - mysql -e "DROP DATABASE IF EXISTS ${DATABASES_MYSQL_NAME};"
-after_success: coveralls
+after_success: COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN} coveralls
