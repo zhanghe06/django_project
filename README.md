@@ -261,12 +261,15 @@ http://docs.coveralls.io/
 https://docs.travis-ci.com/user/getting-started/
 
 步骤：
-1、登录 `travis-ci` 开启 GitHub 项目
-2、登录 `coveralls` 获取项目的 `TOKEN`
-3、在 `travis-ci` 平台设置 `COVERALLS_REPO_TOKEN` 环境变量（`Environment Variables`）
-4、新增代码覆盖配置 `.coveragerc`
-5、新增代码覆盖报告配置（可选） `.coveralls.yml`
-6、新增持续集成配置 `.travis.yml`
+
+1. 登录 `travis-ci` 开启 GitHub 项目
+2. 登录 `coveralls` 获取项目的 `TOKEN`
+3. 在 `travis-ci` 平台设置 `COVERALLS_REPO_TOKEN` 环境变量（`Environment Variables`）
+4. 新增代码覆盖配置 `.coveragerc`
+5. 新增代码覆盖报告配置（可选） `.coveralls.yml`
+6. 新增持续集成配置 `.travis.yml`
+
+
 
 也可以在本地试试本地手动推送报告到 `coveralls`
 
@@ -281,3 +284,8 @@ $ coveralls
 echo "repo_token: <COVERALLS_REPO_TOKEN>" > .coveralls.yml
 并将 .coveralls.yml 加入 .gitignore
 ```
+
+
+## 其它开源工具
+
+状态页面托管 https://www.statuspage.io/
